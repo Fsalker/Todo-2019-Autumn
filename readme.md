@@ -67,10 +67,10 @@ jwt (Bearer authentication token)
 ### **GET /project** - get a list of projects
 ### **GET /project/:projectId** - get a project's detailed information (if the user is added to the project)
 ### **DELETE /project/:projectId** - deletes a project
-... and plenty of others. They're not documented yet.
 
 # Upcoming improvements
 
+- Finishing the `Routes`' documentation
 - `Deleting` all userToProject `linked data` when a User or a Project is deleted
 - `Automated Tests`
 - A new microservice for an awesome `Color of the Day` feature :D
