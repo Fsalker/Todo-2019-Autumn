@@ -10,7 +10,9 @@ const verifyJwt = (req, res, next) => {
   }
 
   const token = auth.slice(7);
-  if (!jwt.verify(token, config.JWT_PRIVATE_KEY)) {
+  try {
+    jwt.verify(token, config.JWT_PRIVATE_KEY);
+  } catch (e) {
     return res.status(401).end('Invalid JWT (verification failed).');
   }
   next();

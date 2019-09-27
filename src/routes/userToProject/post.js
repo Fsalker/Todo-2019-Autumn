@@ -1,13 +1,11 @@
-const dbController = require('./../../databaseController');
+const addUserToProject = require('./../common/addUserToProject');
 const { logger } = require('./../../utils');
 
 const _post = async (req, res) => {
   try {
     const { userId, projectId } = req.params;
 
-    if (await dbController.UserToProject.findOne({ userId, projectId })) return res.end();
-
-    await dbController.UserToProject.create({ userId, projectId });
+    await addUserToProject(userId, projectId);
 
     res.end();
   } catch (e) {

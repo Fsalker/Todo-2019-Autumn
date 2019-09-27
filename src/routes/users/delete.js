@@ -6,6 +6,7 @@ const _delete = async (req, res) => {
     const { userId } = getJwtPayload(req);
 
     await dbController.User.deleteOne({ _id: userId });
+    await dbController.UserToProject.deleteMany({ userId });
 
     res.end();
   } catch (e) {

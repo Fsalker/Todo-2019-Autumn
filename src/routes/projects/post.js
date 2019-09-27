@@ -1,3 +1,4 @@
+const addUserToProject = require('./../common/addUserToProject');
 const dbController = require('./../../databaseController');
 const { logger, getJwtPayload } = require('./../../utils');
 
@@ -7,6 +8,7 @@ const _post = async (req, res) => {
     const { title, description } = req.body;
 
     const project = await dbController.Project.create({ creatorUserId: userId, title, description });
+    await addUserToProject(userId, project._id);
 
     res.json(project);
   } catch (e) {

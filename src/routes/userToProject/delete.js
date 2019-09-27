@@ -1,11 +1,11 @@
-const dbController = require('./../../databaseController');
+const deleteUserFromProject = require('./../common/deleteUserFromProject');
 const { logger } = require('./../../utils');
 
 const _delete = async (req, res) => {
   try {
     const { userId, projectId } = req.params;
 
-    await dbController.UserToProject.deleteMany({ userId, projectId });
+    await deleteUserFromProject(userId, projectId);
 
     res.end();
   } catch (e) {

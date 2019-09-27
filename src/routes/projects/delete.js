@@ -6,6 +6,7 @@ const _delete = async (req, res) => {
     const { projectId } = req.params;
 
     await dbController.Project.deleteOne({ _id: projectId });
+    await dbController.UserToProject.deleteMany({ projectId });
 
     res.end();
   } catch (e) {

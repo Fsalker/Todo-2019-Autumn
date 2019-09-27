@@ -33,8 +33,7 @@ Information stored in the jwt's payload:
 
 # Routes
 
-### **POST /auth/register** - Registers a new user
-
+### **POST /auth/register** - Register a new user
 Input
 ```
 {
@@ -46,9 +45,7 @@ Output
 ```
 jwt (Bearer authentication token)
 ```
-
-### **POST /auth/login** - Logs in an existing user
-
+### **POST /auth/login** - Log in an existing user account
 Input
 ```
 {
@@ -60,19 +57,71 @@ Output
 ```
 jwt (Bearer authentication token)
 ```
-
-### **DELETE /user** - deletes your user
+### **DELETE /user** - delete your user
+Note: the user id is fetched from your valid jwt
 ### **POST /project** - create a new project
-### **PATCH /project** - update an existing project
+Input
+```
+{
+    title: String,
+    description: String
+}
+```
+Output
+```
+{
+    _id: String (ObjectId)
+    creatorUserId: String (ObjectId)
+    title: String
+    description: String
+}
+```
+### **PATCH /project/:projectId** - update an existing project
+Input
+```
+{
+    title: String,
+    description: String
+}
+```
 ### **GET /project** - get a list of projects
+Output
+```
+[{
+    _id: String (ObjectId)
+    title: String
+}]
+```
 ### **GET /project/:projectId** - get a project's detailed information (if the user is added to the project)
+Output
+```
+{
+  _id: String (ObjectId)
+  creatorUserId: String (ObjectId)
+  title: String
+  description: String
+}
+```
+
 ### **DELETE /project/:projectId** - deletes a project
+### **GET /userToProject/:projectId** - get the users in a project
+Output:
+```
+[{
+    _id: String (ObjectId) // this is the userToProject's id, not the user's
+    username: String
+}]
+```
+### **POST /userToProject/:userId/:projectId** - add user to project
+### **DELETE /userToProject/:userId/:projectId** - delete user from project
+
+# Added improvements
+- Finishing the `Routes`' documentation
+- `Automated Tests`
+- `Deleting` all userToProject `linked data` when a User or a Project is deleted
 
 # Upcoming improvements
 
-- Finishing the `Routes`' documentation
-- `Deleting` all userToProject `linked data` when a User or a Project is deleted
-- `Automated Tests`
 - A new microservice for an awesome `Color of the Day` feature :D
 - `Docker-compose` integration in the master branch
 - Editing the users' own optional data with `GraphQL`
@@ -82,6 +131,7 @@ jwt (Bearer authentication token)
 - Returning a different http code than 200 when the request is finished OK without doing anything (ie: an user is already added to a specific project)
 - Returning 400 instead of 500 when requests do not match Mongoose models
 - Authorization rights that are more logically and carefully assigned. They're currently all true except for `canAddComments`, which is only true when your username is longer than 10 characters
+- Testing automatically on a different database altogether
 
 # Canceled improvmeents (until further notice)
 
