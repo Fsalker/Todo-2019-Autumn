@@ -120,9 +120,6 @@ Output:
 - Finishing the `Routes`' documentation
 - `Automated Tests`
 - `Deleting` all userToProject `linked data` when a User or a Project is deleted
-
-# Upcoming improvements
-
 - A new microservice for an awesome `Color of the Day` feature :D
 - `Docker-compose` integration in the master branch
 - Editing the users' own optional data with `GraphQL`
