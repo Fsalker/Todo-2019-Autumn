@@ -5,13 +5,34 @@ services:
     restart: always
     ports: 
       - 3000:27017
+    volumes:
+      - db-volume:/var/db
+
   back-end-main:
-    image: node:latest
-    working_dir: /back-end-main
+    restart: always
+    build:
+      context: ../back-end-main
     command: npm start
     ports:
       - 3001:1337
     environment:
+      - MONGODB_PORT=3000
       - backend.env
     links:
       - mongo
+
+  back-end-color-of-the-day:
+    restart: always
+    build:
+      context: ../back-end-color-of-the-day
+    command: npm start
+    ports: 
+      - 3002:1338
+    environment:
+      - MONGODB_PORT=3000
+      - backend.env
+    links:
+      - mongo
+
+volumes:
+  db-volume:
