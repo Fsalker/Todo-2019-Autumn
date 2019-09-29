@@ -5,7 +5,7 @@ const dbController = require('./../../src/databaseController');
 
 const user = require('./resources/user');
 
-describe('Register, Login and delete User', () => {
+describe('User', () => {
   before(async () => {
     await dbController.User.deleteOne({ username: user.username });
   });

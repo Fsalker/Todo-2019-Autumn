@@ -1,4 +1,4 @@
-const addUserToProject = require('./../common/addUserToProject');
+const { addUserToProject } = require('./../common');
 const dbController = require('./../../databaseController');
 const { logger, getJwtPayload } = require('./../../utils');
 

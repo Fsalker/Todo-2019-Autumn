@@ -4,6 +4,7 @@ const authRouter = require('./authentication');
 const usersRouter = require('./users');
 const projectsRouter = require('./projects');
 const userToProjectRouter = require('./userToProject');
+const graphqlRouter = require('./graphql');
 
 const verifyJwt = require('./middleware/verifyJwt');
 
@@ -19,6 +20,10 @@ router.use('/projects', [
 router.use('/userToProject', [
   verifyJwt,
   userToProjectRouter,
+]);
+router.use('/graphql', [
+  verifyJwt,
+  graphqlRouter,
 ]);
 
 

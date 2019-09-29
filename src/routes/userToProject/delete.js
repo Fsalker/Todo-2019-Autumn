@@ -1,4 +1,4 @@
-const deleteUserFromProject = require('./../common/deleteUserFromProject');
+const { deleteUserFromProject } = require('./../common');
 const { logger } = require('./../../utils');
 
 const _delete = async (req, res) => {
