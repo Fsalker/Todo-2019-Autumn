@@ -3,6 +3,7 @@
 You may create a `.env` file in the root folder and change the following environment variables:
 
 ```
+MONGODB_PORT - your mongodb server's port (defaults to 27017)
 MONGODB_ADDRESS - your mongodb server's address
 PORT - the port that the node server runs on
 ```
