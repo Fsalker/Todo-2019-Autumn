@@ -9,7 +9,7 @@ const _post = async (req, res) => {
 
     res.end();
   } catch (e) {
-    res.status(500).end();
+    res.status(500).end('An error has occurred when processing your request. Please try again.');
     logger(e);
   }
 };

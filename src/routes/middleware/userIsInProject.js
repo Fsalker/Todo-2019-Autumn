@@ -10,7 +10,7 @@ const userIsInProject = async (req, res, next) => {
 
     next();
   } catch (e) {
-    res.status(500).end();
+    res.status(500).end('An error has occurred when processing your request. Please try again.');
     logger(e);
   }
 };

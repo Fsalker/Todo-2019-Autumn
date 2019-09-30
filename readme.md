@@ -58,9 +58,9 @@ Output
 ```
 jwt (Bearer authentication token)
 ```
-### **DELETE /user** - delete your user
+### **DELETE /users** - delete your user
 Note: the user id is fetched from your valid jwt
-### **POST /project** - create a new project
+### **POST /projects** - create a new project
 Input
 ```
 {
@@ -77,7 +77,7 @@ Output
     description: String
 }
 ```
-### **PATCH /project/:projectId** - update an existing project
+### **PATCH /projects/:projectId** - update an existing project
 Input
 ```
 {
@@ -85,7 +85,7 @@ Input
     description: String
 }
 ```
-### **GET /project** - get a list of projects
+### **GET /projects** - get a list of projects
 Output
 ```
 [{
@@ -93,7 +93,7 @@ Output
     title: String
 }]
 ```
-### **GET /project/:projectId** - get a project's detailed information (if the user is added to the project)
+### **GET /projects/:projectId** - get a project's detailed information (if the user is added to the project)
 Output
 ```
 {
@@ -104,7 +104,7 @@ Output
 }
 ```
 
-### **DELETE /project/:projectId** - deletes a project
+### **DELETE /projects/:projectId** - deletes a project
 ### **GET /userToProject/:projectId** - get the users in a project
 Output:
 ```
