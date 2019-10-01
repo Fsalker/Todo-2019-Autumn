@@ -34,5 +34,19 @@ services:
     links:
       - mongo
 
+  front-end:
+    restart: always
+    build:
+      context: ../front-end
+    command: npm start
+    ports: 
+      - 3003:3000
+    environment: 
+      - BACKEND_PORT_MAIN=3000
+      - BACKEND_PORT_COLOR_OF_THE_DAY=3001
+    links:
+      - back-end-main
+      - back-end-color-of-the-day
+
 volumes:
   db-volume:
