@@ -1,3 +1,5 @@
+The Front End is still a WIP. Perhaps I'll finish it someday...
+
 # About
 
 This front end was created [Create React App](https://github.com/facebook/create-react-app).
